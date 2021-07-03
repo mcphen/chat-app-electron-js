@@ -10,6 +10,7 @@ import {MatButtonModule} from '@angular/material/button'
 import {MatInputModule} from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 
 import { ChatComponent } from './chat/chat.component'
 
@@ -18,16 +19,19 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
+import { MessagesComponent } from './messages/messages.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ChatComponent
+    ChatComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, BrowserAnimationsModule,
-    MatToolbarModule, MatButtonModule, MatInputModule,MatIconModule,MatListModule,
+    MatToolbarModule, MatButtonModule, MatInputModule,
+    MatIconModule,MatListModule,FormsModule,
     AngularFireModule.initializeApp(
       environment.firebaseConfig
     ),

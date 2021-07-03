@@ -1,7 +1,10 @@
 <mat-list>
   <h3 mat-subheader>Groups</h3>
 
-  <mat-list-item *ngFor="let group of groups | async">
+  <mat-list-item
+          *ngFor="let group of groups | async"
+          [routerLink]="[group.name, 'messages']"
+        >
     <mat-icon mat-list-icon>chat</mat-icon>
     <h4 mat-line>{{ group.name }}</h4>
     <p mat-line>{{ group.Description }}</p>
