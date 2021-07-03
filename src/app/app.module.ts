@@ -8,10 +8,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { LoginComponent } from './login/login.component';
 import {MatButtonModule} from '@angular/material/button'
 import {MatInputModule} from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+
 import { ChatComponent } from './chat/chat.component'
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
@@ -22,11 +27,12 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule, BrowserAnimationsModule,
-    MatToolbarModule, MatButtonModule, MatInputModule,
+    MatToolbarModule, MatButtonModule, MatInputModule,MatIconModule,MatListModule,
     AngularFireModule.initializeApp(
       environment.firebaseConfig
     ),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
