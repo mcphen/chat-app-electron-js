@@ -13,6 +13,7 @@ export class MessagesComponent implements OnInit {
   group = '';
   newMessage = '';
   messages: Observable<any> | undefined;
+  user = localStorage.user;
   constructor(private route: ActivatedRoute,private firebase: AngularFireDatabase) {}
 
   send() {
@@ -21,8 +22,11 @@ export class MessagesComponent implements OnInit {
 
       messages.push({
         group: this.group,
-        text: this.newMessage
+        text: this.newMessage,
+        //utilisateur : this.user.email
       });
+
+
 
       this.newMessage = '';
     }

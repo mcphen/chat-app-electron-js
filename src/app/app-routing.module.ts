@@ -3,19 +3,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component'
 import {ChatComponent} from './chat/chat.component'
 import {MessagesComponent} from './messages/messages.component'
+
+import { AuthGuard } from "./guard/auth.guard";
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
     path:'login',
     component: LoginComponent
   },
   {
     path:'chat',
-    component: ChatComponent
+    component: ChatComponent,
+    canActivate: [AuthGuard]
   },
 
   {
     path:'chat/:group/messages',
-    component: MessagesComponent
+    component: MessagesComponent,
+    canActivate: [AuthGuard]
   },
 ];
 

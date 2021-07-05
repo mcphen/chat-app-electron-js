@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
+
+import { AuthService } from '../shared/services/auth.services'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,23 +9,14 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class LoginComponent implements OnInit {
 
   error='';
-  constructor(private router : Router, private firebaseAuth: AngularFireAuth){
+  constructor(public authService: AuthService){
 
   }
 
   login(username: string, password : string){
      //perform login here
 
-     this.firebaseAuth.signInWithEmailAndPassword(username,
-              password).then(
-            credential => {
-              console.log(credential);
-              this.router.navigate(['chat']);
-            },
-            err => {
-              this.error = err.message || 'Unknown error';
-            }
-          );
+     this.authService.login(username, password);
   }
 
   ngOnInit(): void {

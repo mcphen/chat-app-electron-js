@@ -1,10 +1,14 @@
 <mat-toolbar color="primary">
+
   <span>Electron Chat</span>
 
   <!-- This fills the remaining space of the current row -->
   <span class="fill-space"></span>
 
-  <a [routerLink]>Login</a>
+  <a *ngIf="user; else loggedOut" (click)="logout()">Deconnexion</a>
+  <ng-template #loggedOut>
+    <a [routerLink]>Login</a>
+  </ng-template>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
